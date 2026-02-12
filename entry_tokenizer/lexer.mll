@@ -5,7 +5,6 @@ open Parser
 exception SyntaxError of string
 }
 
-let int = '-'? ['0'-'9'] ['0'-'9']*
 let string =  ( [^ '"' ' '])* 
 
 
