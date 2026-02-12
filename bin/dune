@@ -1,0 +1,4 @@
+(executable
+ (public_name entry_tokenizer)
+ (name main)
+ (libraries entry_tokenizer))

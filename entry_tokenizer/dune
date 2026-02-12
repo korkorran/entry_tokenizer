@@ -1,0 +1,10 @@
+(menhir
+ (modules parser))
+
+(ocamllex lexer)
+
+(library
+ (name entry_tokenizer)
+ (modules parser lexer entry main)
+ (preprocess (pps ppx_deriving.show))
+ (libraries core yojson core_unix))
