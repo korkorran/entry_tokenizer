@@ -10,6 +10,10 @@ let () =
   let open Alcotest in
   run "Test" [
       "tokenizer", [
-        test_case "tokenize json" `Quick (test_tokenizer "name Alice" (Some ["name"; "Alice"]))
+        test_case "tokenize 2 words" `Quick (test_tokenizer "name Alice" (Some ["name"; "Alice"]));
+        test_case "tokenize 3 words" `Quick (test_tokenizer "name Alice \"hello\"" (Some ["name"; "Alice"; "\"hello\""]));
+        test_case "tokenize 4 words" `Quick (test_tokenizer "git commit -m \"a commit message\"" 
+          (Some ["git"; "commit"; "-m"; "\"a commit message\""]));
+        test_case "tokenize fails" `Quick (test_tokenizer "name Alice \"hello" (None));
       ]
     ]
